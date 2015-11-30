@@ -1,0 +1,20 @@
+body {
+    background-image: url("/src/assets/skyline.jpg");
+    width: 400px;
+    height: 274px;
+}
+
+html {
+  width: 400px;
+  height: 274px;
+}
+
+.rating {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.company-name {
+  font-size: 60px;
+  font-weight: bold;
+}
