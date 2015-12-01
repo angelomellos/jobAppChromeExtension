@@ -1,6 +1,11 @@
 <body>
-  <div class="company-name">{{companyInfo.name}}<div>
-  <div class="rating">{{companyInfo.overallRating}}</div>
+  <img class="small-logo" src={{companyInfo.squareLogo}}></img>
+  <div class="company-name">{{companyInfo.name}}</div>
+  <div class="company-info">
+    Average Rating: {{companyInfo.overallRating}}<br>
+    Number of Reviews: {{companyInfo.numberOfRatings}}
+  </div>
   <button ng-click="viewMore()">View More</button>
   <button ng-click="markAsApplied()">Applied to</button>
+  <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
 </body>

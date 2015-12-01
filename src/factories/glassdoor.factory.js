@@ -5,10 +5,10 @@ app.factory("glassdoorFactory", function($http){
     return new Promise (function(resolve,reject){
       chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
       var activeTabUrl = tabs[0].url;
-  		activeTabUrl = activeTabUrl.replace("www.","");
-  		activeTabUrl = activeTabUrl.replace("https://","");
-  		activeTabUrl = activeTabUrl.replace("http://","");
-  		activeTabUrl = activeTabUrl.replace("com/","");
+      var replacements = ["www.","https://","http://","com/","com","io","io/"]
+  		for (var i = 0; i < replacements.length; i++) {
+  		  activeTabUrl = activeTabUrl.replace(replacements[i],"");
+  		}
 
       chainGlassdoorQuery(null,".",0)
       .then(previous => chainGlassdoorQuery(previous,".",1))
