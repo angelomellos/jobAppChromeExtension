@@ -20,6 +20,17 @@ html {
   display: inline;
 }
 
+.company-info-btn {
+  background: transparent;
+  border-radius: 5px;
+  border-style: solid;
+  color: white;
+}
+
+.btn-txt {
+  opacity: 100;
+}
+
 .small-logo {
   width: 30px;
   height: 30px;

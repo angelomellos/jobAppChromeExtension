@@ -17,7 +17,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://jobs.lever.co/*"],
+      "matches": ["<all_urls>"],
       "js": ["js/jquery/jquery.js","content/company-page.js"]
     }
   ],
