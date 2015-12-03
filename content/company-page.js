@@ -1,28 +1,23 @@
-// $('.postings-btn').click(recordApplication);
-// function recordApplication() {
-//   var sendObj = { "post": {
-//     "title": "Testing background",
-//     "excerpt": "its in...",
-//     "content": "its in the background",
-//     "active": true
-//   } }
-//   $.ajax({
-//     url: "http://localhost:3000/api/post",
-//     method: "POST",
-//     data: sendObj,
-//     success: function(data){
-//       console.log('data===',data);
-//     }
-//   })
-// }
+function recordApplication(companyName) {
+  var sendObj = {companyName: companyName}
+  $.ajax({
+    url: "http://localhost:3000/api/post",
+    method: "POST",
+    data: sendObj,
+    success: function(data){
+      console.log('data===',data);
+    }
+  })
+}
 $(document).ready(function(){
   if (document.URL.match(/job|career/)){
     var submitButton = $("button")
-    .filter(function(idx) {
+    .filter(function() {
       return this.innerHTML.match(/submit|apply/) > -1;
     });
+    // if (submitButton) submitButton.click(() => createToast());
+  createToast();//for testing
   }
-  createToast();
 });
 
 function createToast(){
@@ -30,7 +25,7 @@ function createToast(){
   $(applicationToast).css({
     "color" : "#fff",
     "background" : "#68c368",
-    "z-index" : "2147483647px",
+    "z-index" : "2147483647px",//TODO find out why the z-index isn't working
     "position" : "absolute",
     "top" : "60px",
     "right" : "0px",
@@ -71,10 +66,9 @@ function createToast(){
   $(applicationToast).append(companyInput);
   $(applicationToast).append(checkMark);
   $(applicationToast).append(xMark);
-  $(xMark).click(function(){
-    $(applicationToast).remove();
-  });
-  $(xMark).click(function(){
+  $(xMark).click(() => $(applicationToast).remove());
+  $(checkMark).click(function(){
+    recordApplication($(companyInput).val());
     $(applicationToast).remove();
   });
 }
